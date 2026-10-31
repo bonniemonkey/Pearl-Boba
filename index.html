@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pearl Street Boba</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 1.5rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #222;
+      background: #f7f7f7;
+    }
+
+    .top-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .top-tabs a {
+      padding: 0.55rem 0.8rem;
+      color: #2f6f3e;
+      background: #fff;
+      border: 1px solid #cbd9cb;
+      border-radius: 0.25rem;
+      text-decoration: none;
+    }
+
+    .top-tabs a:hover,
+    .top-tabs a:focus-visible {
+      color: #fff;
+      background: #2f6f3e;
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin: 1.75rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin: 0 0 0.65rem;
+      max-width: 36rem;
+    }
+
+    ul {
+      margin: 0 0 0.75rem;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: #e8f3e8;
+      border-radius: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.65rem 1rem;
+      color: #fff;
+      background: #2f6f3e;
+      border-radius: 0.25rem;
+      text-decoration: none;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 18rem;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      animation: slide-in 0.8s ease-out both;
+    }
+
+    @keyframes slide-in {
+      from {
+        opacity: 0;
+        transform: translateX(2rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .shop-intro {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+    }
+
+    .shop-intro h1,
+    .shop-intro h2 {
+      margin-top: 0;
+    }
+
+    .items-section {
+      padding-top: 1rem;
+      border-top: 2px solid #d9e5d9;
+    }
+
+    .menu-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .price-list {
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 0.4rem;
+    }
+
+    .price-list h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .price-list h3:not(:first-child) {
+      margin-top: 1.25rem;
+    }
+
+    .drink-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 48rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .drink-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 0.4rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .drink-card:hover,
+    .drink-card:focus-visible {
+      transform: translateY(-0.2rem);
+      border-color: #2f6f3e;
+    }
+
+    .drink-card img {
+      display: block;
+      width: 100%;
+      height: 10rem;
+      object-fit: cover;
+    }
+
+    .drink-card-copy {
+      flex: 1;
+      padding: 0.65rem;
+      font-size: 0.9rem;
+    }
+
+    .drink-card-copy strong {
+      display: block;
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+    }
+
+    .drink-card-copy span {
+      display: block;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .drink-details {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      box-sizing: border-box;
+      width: min(22rem, calc(100% - 2rem));
+      height: 100vh;
+      padding: 2rem 1.5rem;
+      overflow-y: auto;
+      background: #fff;
+      box-shadow: -0.5rem 0 1.5rem rgba(0, 0, 0, 0.15);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .drink-details.is-open {
+      transform: translateX(0);
+    }
+
+    .drink-details h2 {
+      margin-top: 0;
+    }
+
+    .details-label {
+      color: #2f6f3e;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .details-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.25rem 0.55rem;
+      color: #222;
+      background: #f1f1f1;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-block {
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 0.4rem;
+    }
+
+    .info-block h2 {
+      margin-top: 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .drink-gallery,
+      .info-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 450px) {
+      .drink-gallery,
+      .info-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    body {
+      padding: 0;
+      color: #201e1d;
+      background: #fff5ea;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.25rem 3rem;
+      background: #fff5ea;
+      border-bottom: 1px solid #e8e4de;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: #201e1d;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 2.4rem;
+      height: 2.4rem;
+      place-items: center;
+      color: #201e1d;
+      background: #ffd05a;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .site-header .top-tabs {
+      flex: 1;
+      justify-content: center;
+      gap: 1.25rem;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .site-header .top-tabs a {
+      padding: 0.4rem 0;
+      color: #5d5954;
+      background: transparent;
+      border: 0;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .site-header .top-tabs a:hover,
+    .site-header .top-tabs a:focus-visible {
+      color: #f15b2a;
+      background: transparent;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .language-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem;
+      color: #5d5954;
+      background: #eeebe5;
+      border-radius: 2rem;
+      font-weight: 700;
+    }
+
+    .language-switch strong {
+      padding: 0.55rem 0.8rem;
+      color: #fff;
+      background: #201e1d;
+      border-radius: 50%;
+      font-size: 0.8rem;
+    }
+
+    .header-cta,
+    .hero-button {
+      display: inline-block;
+      padding: 0.9rem 1.35rem;
+      color: #fff;
+      background: #201e1d;
+      border: 2px solid #201e1d;
+      border-radius: 2rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .header-cta:hover,
+    .hero-button:hover {
+      color: #201e1d;
+      background: transparent;
+    }
+
+    .page-content {
+      max-width: 82rem;
+      margin: 0 auto;
+      padding: 0 3.5rem 4rem;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 38rem;
+      margin: 0;
+      padding: 5.5rem 0 6rem;
+      background: transparent;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      position: absolute;
+      top: 2rem;
+      right: 4%;
+      width: 34rem;
+      height: 34rem;
+      background: radial-gradient(circle, #ffd3a2 0%, #ffe9d0 42%, rgba(255, 233, 208, 0) 72%);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-copy,
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      max-width: 45rem;
+    }
+
+    .hero h1 {
+      max-width: 48rem;
+      margin-bottom: 1.5rem;
+      font-size: clamp(3.8rem, 8vw, 7.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+    }
+
+    .hero h1 .accent {
+      color: #f15b2a;
+    }
+
+    .typing-headline.typing-active::after {
+      display: inline-block;
+      width: 0.08em;
+      height: 0.78em;
+      margin-left: 0.12em;
+      background: #f15b2a;
+      content: "";
+      vertical-align: -0.03em;
+      animation: typing-caret 0.8s step-end infinite;
+    }
+
+    @keyframes typing-caret {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero-copy > p {
+      max-width: 42rem;
+      color: #5d5954;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    }
+
+    .hero-support.ink-pending {
+      opacity: 0;
+    }
+
+    .hero-support.ink-in {
+      animation: ink-in 0.75s ease-out both;
+    }
+
+    @keyframes ink-in {
+      0% {
+        opacity: 0;
+        filter: blur(0.55rem);
+        transform: translateY(0.45rem);
+      }
+      25% {
+        opacity: 0.12;
+      }
+      55% {
+        opacity: 0.42;
+        filter: blur(0.25rem);
+      }
+      80% {
+        opacity: 0.78;
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .hero-secondary {
+      padding: 0.9rem 1.35rem;
+      color: #201e1d;
+      border: 2px solid #201e1d;
+      border-radius: 2rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hero-secondary:hover {
+      color: #fff;
+      background: #201e1d;
+    }
+
+    .hero-visual {
+      width: min(100%, 25rem);
+      margin: -3rem 5% 0 auto;
+    }
+
+    .hero-visual img {
+      display: block;
+      width: 100%;
+      height: 25rem;
+      margin: 0;
+      object-fit: cover;
+      border: 0.8rem solid rgba(255, 255, 255, 0.65);
+      border-radius: 2.5rem;
+      box-shadow: 0 1.5rem 3rem rgba(61, 46, 33, 0.12);
+    }
+
+    .hero-logo {
+      grid-column: 1 / -1;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      max-width: calc(100% - 2.4rem);
+      margin: 0 auto 1rem;
+      padding: 1rem 2rem;
+      color: #fff;
+      background: linear-gradient(135deg, #201e1d, #4a3027);
+      border: 0.35rem solid #ffd05a;
+      border-radius: 2.5rem;
+      box-shadow: 0 0.9rem 1.75rem rgba(61, 46, 33, 0.2);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .hero-logo .accent {
+      color: #f15b2a;
+    }
+
+    .shop-intro {
+      max-width: 46rem;
+      margin: 0;
+      padding: 5rem 0 4rem;
+      background: transparent;
+      border: 0;
+      border-top: 1px solid #e8e4de;
+      border-radius: 0;
+    }
+
+    .shop-intro h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.05em;
+    }
+
+    .shop-intro p,
+    .info-block p,
+    .price-list p {
+      color: #5d5954;
+    }
+
+    .items-section {
+      padding: 5rem 0;
+      border-top: 1px solid #e8e4de;
+    }
+
+    .items-section > h2 {
+      margin-top: 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.05em;
+    }
+
+    .menu-layout {
+      grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+      gap: 2rem;
+    }
+
+    .price-list,
+    .info-block {
+      background: #fff;
+      border: 1px solid #e8e4de;
+      border-radius: 1.25rem;
+      box-shadow: 0 0.75rem 2rem rgba(61, 46, 33, 0.04);
+    }
+
+    .drink-gallery {
+      max-width: none;
+      gap: 1.25rem;
+    }
+
+    .drink-card {
+      border: 1px solid #e8e4de;
+      border-radius: 1.25rem;
+      box-shadow: 0 0.75rem 2rem rgba(61, 46, 33, 0.04);
+    }
+
+    .drink-card:hover,
+    .drink-card:focus-visible {
+      border-color: #f15b2a;
+      box-shadow: 0 1rem 2.2rem rgba(61, 46, 33, 0.1);
+    }
+
+    .drink-card img {
+      height: 13rem;
+    }
+
+    .info-row {
+      margin-top: 4rem;
+    }
+
+    .info-block {
+      border-radius: 1.25rem;
+    }
+
+    .drink-details {
+      border-left: 0.4rem solid #f15b2a;
+    }
+
+    @media (max-width: 1000px) {
+      .site-header {
+        flex-wrap: wrap;
+        padding: 1rem 1.5rem;
+      }
+
+      .site-header .top-tabs {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+
+      .header-actions {
+        margin-left: auto;
+      }
+
+      .page-content {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-content {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 4rem 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.3rem, 16vw, 5rem);
+      }
+
+      .hero-logo {
+        max-width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: clamp(1.1rem, 6vw, 1.5rem);
+      }
+
+      .hero-visual {
+        width: 100%;
+        margin: 2rem 0 0;
+      }
+
+      .hero-visual img {
+        width: 100%;
+        height: 20rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-button,
+      .hero-secondary {
+        text-align: center;
+      }
+
+      .header-actions {
+        gap: 0.5rem;
+      }
+
+      .language-switch {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="top-tabs" aria-label="Main navigation">
+      <a href="#intro">Our story</a>
+      <a href="#menu">Our menu</a>
+      <a href="#visit">Visit us</a>
+      <a href="#deals">Deals</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-cta" href="#menu">Order now</a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="hero">
+      <div class="hero-logo">
+        <span>Pearl Street <span class="accent">Boba</span></span>
+      </div>
+      <div class="hero-copy">
+        <h1 class="typing-headline" aria-label="Fresh boba for your day."><span data-typing="Fresh ">Fresh </span><span class="accent" data-typing="boba">boba</span><br /><span data-typing="for your day.">for your day.</span></h1>
+        <p class="hero-support">Fresh tea, soft pearls, and bright flavors made right near campus.</p>
+        <div class="hero-actions">
+          <a class="hero-button" href="#menu">Explore the menu</a>
+          <a class="hero-secondary" href="#intro">Our story</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="images/hero.jpg" alt="Boba tea held beneath pink blossoms" />
+      </div>
+    </section>
+
+    <section class="shop-intro" id="intro">
+      <h1>Pearl Street Boba</h1>
+      <p>Fresh boba tea near campus.</p>
+      <p>Owner: Kai</p>
+
+      <h2>About</h2>
+      <p>Small boba shop on Pearl Street and 4th. Fresh tea. Soft pearls. Fast orders.</p>
+    </section>
+
+    <section class="items-section" id="menu">
+      <h2>Menu</h2>
+      <div class="menu-layout">
+      <div>
+        <p>Drinks:</p>
+        <div class="drink-gallery">
+      <button class="drink-card" type="button" data-name="Brown Sugar Milk Tea" data-price="$6.00" data-info="Rich caramel flavor with chewy brown sugar pearls.">
+        <img src="images/brown-sugar-cup.jpg" alt="Brown sugar milk tea with boba" />
+        <span class="drink-card-copy">
+          <strong>Brown Sugar Milk Tea</strong>
+          <span>Rich caramel flavor with chewy brown sugar pearls.</span>
+        </span>
+      </button>
+      <button class="drink-card" type="button" data-name="Classic Milk Tea" data-price="$5.50" data-info="Smooth, creamy tea paired with classic boba.">
+        <img src="images/brown-sugar.jpg" alt="Milk tea with boba held in a cup" />
+        <span class="drink-card-copy">
+          <strong>Classic Milk Tea</strong>
+          <span>Smooth, creamy tea paired with classic boba.</span>
+        </span>
+      </button>
+      <button class="drink-card" type="button" data-name="Taro Milk Tea" data-price="$6.00" data-info="Creamy taro with a softly sweet, nutty finish.">
+        <img src="images/taro.jpg" alt="Taro milk tea" />
+        <span class="drink-card-copy">
+          <strong>Taro Milk Tea</strong>
+          <span>Creamy taro with a softly sweet, nutty finish.</span>
+        </span>
+      </button>
+      <button class="drink-card" type="button" data-name="Matcha Latte" data-price="$6.25" data-info="Earthy green tea layered with smooth milk.">
+        <img src="images/milk-tea.jpg" alt="Layered green tea drink" />
+        <span class="drink-card-copy">
+          <strong>Matcha Latte</strong>
+          <span>Earthy green tea layered with smooth milk.</span>
+        </span>
+      </button>
+      <button class="drink-card" type="button" data-name="Fresh Tea Blend" data-price="$5.50" data-info="A bright, layered drink with a refreshing finish.">
+        <img src="images/layered.jpg" alt="Green and pink layered tea" />
+        <span class="drink-card-copy">
+          <strong>Fresh Tea Blend</strong>
+          <span>A bright, layered drink with a refreshing finish.</span>
+        </span>
+      </button>
+      <button class="drink-card" type="button" data-name="Strawberry Fruit Tea" data-price="$5.50" data-info="Juicy strawberry tea balanced with citrusy lemon.">
+        <img src="images/strawberry.jpg" alt="Strawberry fruit tea with lemon" />
+        <span class="drink-card-copy">
+          <strong>Strawberry Fruit Tea</strong>
+          <span>Juicy strawberry tea balanced with citrusy lemon.</span>
+        </span>
+      </button>
+        </div>
+      </div>
+
+      <aside class="price-list">
+        <h3>Menu prices</h3>
+        <ul>
+          <li>Classic Milk Tea with Boba - $5.50</li>
+          <li>Brown Sugar Milk Tea - $6.00</li>
+          <li>Taro Milk Tea - $6.00</li>
+          <li>Matcha Latte with Boba - $6.25</li>
+          <li>Thai Tea - $5.75</li>
+          <li>Mango Green Tea - $5.50</li>
+          <li>Strawberry Fruit Tea - $5.50</li>
+          <li>Honey Lemon Green Tea - $5.25</li>
+          <li>Wintermelon Tea - $5.00</li>
+          <li>Oolong Milk Tea - $5.75</li>
+        </ul>
+
+        <h3>Toppings</h3>
+        <ul>
+          <li>Classic boba pearls - +$0.75</li>
+          <li>Brown sugar pearls - +$1.00</li>
+          <li>Lychee jelly - +$0.75</li>
+          <li>Aloe jelly - +$0.75</li>
+          <li>Pudding - +$0.75</li>
+        </ul>
+
+        <p>Sweetness: 0%, 30%, 50%, 70%, or 100%</p>
+        <p>Ice: Extra ice, regular ice, or less ice</p>
+      </aside>
+      </div>
+    </section>
+
+    <div class="info-row" id="visit">
+      <section class="info-block">
+        <h2>Hours</h2>
+        <p>Mon-Wed: 11:00 AM - 8:00 PM</p>
+        <p>Thu-Fri: 11:00 AM - 9:00 PM</p>
+        <p>Sat: 12:00 PM - 9:00 PM</p>
+        <p>Sun: 12:00 PM - 7:00 PM</p>
+      </section>
+
+      <section class="info-block">
+        <h2>Location</h2>
+        <p>418 Pearl Street</p>
+        <p>Across from the campus bookstore</p>
+        <p>Look for the green awning</p>
+      </section>
+    </div>
+
+    <section id="deals">
+      <h2>Deals</h2>
+      <p>Student discount on classic milk tea on weekday afternoons</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: kai@pearlstreetboba.example</p>
+      <p>Phone: (555) 014-2288</p>
+    </section>
+  </main>
+
+  <aside class="drink-details" id="drink-details" aria-hidden="true">
+    <button class="details-close" type="button" aria-label="Close drink details">&times;</button>
+    <p class="details-label">Drink details</p>
+    <h2 id="details-title">Select a drink</h2>
+    <p id="details-info">Choose a boba card to see more information.</p>
+    <p><strong>Price:</strong> <span id="details-price">--</span></p>
+  </aside>
+
+  <script>
+    const typingHeadline = document.querySelector('.typing-headline');
+    const typingSegments = typingHeadline.querySelectorAll('[data-typing]');
+    const heroSupport = document.querySelector('.hero-support');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reducedMotion) {
+      heroSupport.classList.add('ink-pending');
+      typingHeadline.classList.add('typing-active');
+      let typingDelay = 0;
+
+      typingSegments.forEach((segment) => {
+        const text = segment.dataset.typing;
+        segment.textContent = '';
+
+        [...text].forEach((character) => {
+          window.setTimeout(() => {
+            segment.textContent += character;
+          }, typingDelay);
+          typingDelay += 55;
+        });
+      });
+
+      window.setTimeout(() => {
+        typingHeadline.classList.remove('typing-active');
+        heroSupport.classList.remove('ink-pending');
+        heroSupport.classList.add('ink-in');
+      }, typingDelay + 700);
+    }
+
+    const detailsPanel = document.querySelector('#drink-details');
+    const detailsTitle = document.querySelector('#details-title');
+    const detailsInfo = document.querySelector('#details-info');
+    const detailsPrice = document.querySelector('#details-price');
+    const closeDetails = document.querySelector('.details-close');
+
+    document.querySelectorAll('.drink-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        detailsTitle.textContent = card.dataset.name;
+        detailsInfo.textContent = card.dataset.info;
+        detailsPrice.textContent = card.dataset.price;
+        detailsPanel.classList.add('is-open');
+        detailsPanel.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    closeDetails.addEventListener('click', () => {
+      detailsPanel.classList.remove('is-open');
+      detailsPanel.setAttribute('aria-hidden', 'true');
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        detailsPanel.classList.remove('is-open');
+        detailsPanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>
