@@ -339,8 +339,9 @@
       flex: 1 1 0;
       position: relative;
       overflow: visible;
-      min-height: 5rem;
-      padding: 1rem 0.75rem 2rem;
+      box-sizing: border-box;
+      height: 4.75rem;
+      padding: 0.8rem 0.75rem 1.7rem;
       color: #5d5954;
       border: 1px solid rgba(61, 46, 33, 0.12);
       border-radius: 1.25rem 1.25rem 0.9rem 0.9rem;
@@ -382,10 +383,12 @@
       left: 0;
       z-index: 0;
       display: block;
-      height: 2.2rem;
+      height: 1.85rem;
       background: var(--drink-liquid);
       border-radius: 50% 50% 0.8rem 0.8rem / 28% 28% 0.8rem 0.8rem;
-      clip-path: polygon(0 20%, 10% 8%, 22% 19%, 34% 5%, 47% 18%, 60% 7%, 73% 20%, 86% 6%, 100% 17%, 100% 100%, 0 100%);
+      clip-path: polygon(0 30%, 10% 18%, 22% 27%, 34% 13%, 47% 22%, 60% 10%, 73% 19%, 86% 7%, 100% 15%, 100% 100%, 0 100%);
+      transform: rotate(-6deg) scale(1.04);
+      transform-origin: center bottom;
     }
 
     .site-header .top-tabs a > .cup-liquid::after {
@@ -402,7 +405,7 @@
 
     .site-header .top-tabs a > .cup-face {
       position: absolute;
-      top: 2.35rem;
+      top: 2rem;
       left: 50%;
       z-index: 2;
       display: block;
