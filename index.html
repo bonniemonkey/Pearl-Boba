@@ -363,6 +363,31 @@
       text-align: left;
     }
 
+    .site-header .top-tabs a > .box-liquid {
+      position: absolute;
+      right: 0.15rem;
+      bottom: 0.15rem;
+      left: 0.15rem;
+      z-index: 0;
+      display: block;
+      height: 1.45rem;
+      background: var(--drink-liquid);
+      border-radius: 50% 50% 0.75rem 0.75rem / 42% 42% 0.75rem 0.75rem;
+      clip-path: polygon(0 32%, 10% 18%, 22% 29%, 34% 13%, 47% 25%, 60% 10%, 73% 22%, 86% 9%, 100% 20%, 100% 100%, 0 100%);
+    }
+
+    .site-header .top-tabs a > .box-liquid::after {
+      position: absolute;
+      top: 0.35rem;
+      right: 18%;
+      left: 18%;
+      height: 0.25rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.32);
+      border-radius: 50%;
+      content: "";
+      transform: rotate(-2deg);
+    }
+
     .drink-sticker {
       position: absolute;
       top: 0.55rem;
@@ -916,6 +941,7 @@
   <header class="site-header">
     <nav class="top-tabs" aria-label="Main navigation">
       <a href="#intro">
+        <span class="box-liquid" aria-hidden="true"></span>
         <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
           <path class="sticker-straw" d="M31 16 L34 3" />
           <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
@@ -933,6 +959,7 @@
         <span class="nav-label">Our story</span>
       </a>
       <a href="#menu">
+        <span class="box-liquid" aria-hidden="true"></span>
         <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
           <path class="sticker-straw" d="M31 16 L34 3" />
           <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
@@ -950,6 +977,7 @@
         <span class="nav-label">Our menu</span>
       </a>
       <a href="#visit">
+        <span class="box-liquid" aria-hidden="true"></span>
         <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
           <path class="sticker-straw" d="M31 16 L34 3" />
           <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
@@ -967,6 +995,7 @@
         <span class="nav-label">Visit us</span>
       </a>
       <a href="#deals">
+        <span class="box-liquid" aria-hidden="true"></span>
         <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
           <path class="sticker-straw" d="M31 16 L34 3" />
           <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
@@ -984,6 +1013,7 @@
         <span class="nav-label">Deals</span>
       </a>
       <a href="#contact">
+        <span class="box-liquid" aria-hidden="true"></span>
         <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
           <path class="sticker-straw" d="M31 16 L34 3" />
           <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
