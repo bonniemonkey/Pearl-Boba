@@ -341,7 +341,7 @@
       overflow: visible;
       box-sizing: border-box;
       height: 4.75rem;
-      padding: 0.8rem 0.75rem 1.7rem;
+      padding: 0.8rem 0.65rem 0.8rem 3.35rem;
       color: #5d5954;
       border: 1px solid rgba(61, 46, 33, 0.12);
       border-radius: 1.25rem 1.25rem 0.9rem 0.9rem;
@@ -360,6 +360,64 @@
       position: relative;
       z-index: 2;
       display: block;
+      text-align: left;
+    }
+
+    .drink-sticker {
+      position: absolute;
+      top: 0.55rem;
+      left: 0.55rem;
+      z-index: 2;
+      display: block;
+      width: 2.45rem;
+      height: 3.4rem;
+      overflow: visible;
+    }
+
+    .drink-sticker .sticker-body {
+      fill: var(--sticker-body);
+      stroke: #201e1d;
+      stroke-width: 2;
+    }
+
+    .drink-sticker .sticker-liquid {
+      fill: var(--sticker-liquid);
+      stroke: #201e1d;
+      stroke-width: 1.5;
+    }
+
+    .drink-sticker .sticker-lid {
+      fill: var(--sticker-lid);
+      stroke: #201e1d;
+      stroke-width: 2;
+    }
+
+    .drink-sticker .sticker-straw {
+      fill: none;
+      stroke: var(--sticker-lid);
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .drink-sticker .sticker-eye {
+      fill: #201e1d;
+    }
+
+    .drink-sticker .sticker-cheek {
+      fill: #f49a9d;
+    }
+
+    .drink-sticker .sticker-pearl {
+      fill: #704432;
+      stroke: #201e1d;
+      stroke-width: 0.8;
+    }
+
+    .drink-sticker .sticker-mouth {
+      fill: none;
+      stroke: #201e1d;
+      stroke-width: 1.7;
+      stroke-linecap: round;
     }
 
     .site-header .top-tabs a > .cup-straw {
@@ -432,74 +490,50 @@
       transform: translateX(-50%);
     }
 
-    .site-header .top-tabs a::before {
-      position: absolute;
-      top: 0.35rem;
-      right: 12%;
-      left: 12%;
-      z-index: 1;
-      height: 0.35rem;
-      background: rgba(255, 255, 255, 0.68);
-      border: 2px solid rgba(61, 46, 33, 0.28);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .site-header .top-tabs a::after {
-      position: absolute;
-      right: 12%;
-      bottom: 0.35rem;
-      left: 12%;
-      z-index: 1;
-      height: 0.8rem;
-      background-image:
-        radial-gradient(circle at 8% 50%, #704432 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 28% 50%, #704432 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 50% 50%, #704432 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 72% 50%, #704432 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 92% 50%, #704432 0 0.28rem, transparent 0.3rem);
-      content: "";
-    }
-
     .site-header .top-tabs a:nth-child(1) {
       --drink-body: #ffd1c4;
       --drink-liquid: #f06443;
+      --sticker-body: #ffd1c4;
+      --sticker-liquid: #f06443;
+      --sticker-lid: #ff9c89;
       color: #542822;
     }
 
     .site-header .top-tabs a:nth-child(2) {
       --drink-body: #e8bd85;
       --drink-liquid: #9a5b35;
+      --sticker-body: #f2c28e;
+      --sticker-liquid: #9a5b35;
+      --sticker-lid: #d9975f;
       color: #fff;
     }
 
     .site-header .top-tabs a:nth-child(3) {
       --drink-body: #c5df8e;
       --drink-liquid: #5e9849;
+      --sticker-body: #c5df8e;
+      --sticker-liquid: #5e9849;
+      --sticker-lid: #a8d174;
       color: #173e25;
     }
 
     .site-header .top-tabs a:nth-child(4) {
       --drink-body: #dfc7f6;
       --drink-liquid: #9566c7;
+      --sticker-body: #dfc7f6;
+      --sticker-liquid: #9566c7;
+      --sticker-lid: #c5a5ed;
       color: #3a234b;
     }
 
     .site-header .top-tabs a:nth-child(5) {
       --drink-body: #a66b4b;
       --drink-liquid: #653622;
+      --sticker-body: #d79a6d;
+      --sticker-liquid: #653622;
+      --sticker-lid: #b97a54;
       color: #fff;
       text-shadow: 0 0.05rem 0 rgba(0, 0, 0, 0.25);
-    }
-
-    .site-header .top-tabs a:nth-child(4)::after,
-    .site-header .top-tabs a:nth-child(5)::after {
-      background-image:
-        radial-gradient(circle at 8% 50%, rgba(255, 255, 255, 0.72) 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 28% 50%, rgba(255, 255, 255, 0.72) 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.72) 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 72% 50%, rgba(255, 255, 255, 0.72) 0 0.28rem, transparent 0.3rem),
-        radial-gradient(circle at 92% 50%, rgba(255, 255, 255, 0.72) 0 0.28rem, transparent 0.3rem);
     }
 
     .site-header .top-tabs a:hover,
@@ -879,11 +913,91 @@
 <body>
   <header class="site-header">
     <nav class="top-tabs" aria-label="Main navigation">
-      <a href="#intro"><span class="cup-straw" aria-hidden="true"></span><span class="cup-liquid" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Our story</span></a>
-      <a href="#menu"><span class="cup-straw" aria-hidden="true"></span><span class="cup-liquid" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Our menu</span></a>
-      <a href="#visit"><span class="cup-straw" aria-hidden="true"></span><span class="cup-liquid" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Visit us</span></a>
-      <a href="#deals"><span class="cup-straw" aria-hidden="true"></span><span class="cup-liquid" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Deals</span></a>
-      <a href="#contact"><span class="cup-straw" aria-hidden="true"></span><span class="cup-liquid" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Contact</span></a>
+      <a href="#intro">
+        <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
+          <path class="sticker-straw" d="M31 16 L34 3" />
+          <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
+          <path class="sticker-liquid" d="M12 44 Q20 39 28 44 Q36 49 44 43 Q49 40 52 44 L50 64 Q32 72 14 64 Z" />
+          <ellipse class="sticker-lid" cx="32" cy="20" rx="23" ry="7" />
+          <circle class="sticker-eye" cx="25" cy="33" r="2.7" />
+          <circle class="sticker-eye" cx="39" cy="33" r="2.7" />
+          <circle class="sticker-cheek" cx="20" cy="39" r="1.7" />
+          <circle class="sticker-cheek" cx="44" cy="39" r="1.7" />
+          <path class="sticker-mouth" d="M29 37 Q32 41 35 37" />
+          <circle class="sticker-pearl" cx="22" cy="56" r="3.5" />
+          <circle class="sticker-pearl" cx="32" cy="61" r="3.5" />
+          <circle class="sticker-pearl" cx="42" cy="56" r="3.5" />
+        </svg>
+        <span class="nav-label">Our story</span>
+      </a>
+      <a href="#menu">
+        <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
+          <path class="sticker-straw" d="M31 16 L34 3" />
+          <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
+          <path class="sticker-liquid" d="M12 44 Q20 39 28 44 Q36 49 44 43 Q49 40 52 44 L50 64 Q32 72 14 64 Z" />
+          <ellipse class="sticker-lid" cx="32" cy="20" rx="23" ry="7" />
+          <circle class="sticker-eye" cx="25" cy="33" r="2.7" />
+          <circle class="sticker-eye" cx="39" cy="33" r="2.7" />
+          <circle class="sticker-cheek" cx="20" cy="39" r="1.7" />
+          <circle class="sticker-cheek" cx="44" cy="39" r="1.7" />
+          <path class="sticker-mouth" d="M29 37 Q32 41 35 37" />
+          <circle class="sticker-pearl" cx="22" cy="56" r="3.5" />
+          <circle class="sticker-pearl" cx="32" cy="61" r="3.5" />
+          <circle class="sticker-pearl" cx="42" cy="56" r="3.5" />
+        </svg>
+        <span class="nav-label">Our menu</span>
+      </a>
+      <a href="#visit">
+        <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
+          <path class="sticker-straw" d="M31 16 L34 3" />
+          <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
+          <path class="sticker-liquid" d="M12 44 Q20 39 28 44 Q36 49 44 43 Q49 40 52 44 L50 64 Q32 72 14 64 Z" />
+          <ellipse class="sticker-lid" cx="32" cy="20" rx="23" ry="7" />
+          <circle class="sticker-eye" cx="25" cy="33" r="2.7" />
+          <circle class="sticker-eye" cx="39" cy="33" r="2.7" />
+          <circle class="sticker-cheek" cx="20" cy="39" r="1.7" />
+          <circle class="sticker-cheek" cx="44" cy="39" r="1.7" />
+          <path class="sticker-mouth" d="M29 37 Q32 41 35 37" />
+          <circle class="sticker-pearl" cx="22" cy="56" r="3.5" />
+          <circle class="sticker-pearl" cx="32" cy="61" r="3.5" />
+          <circle class="sticker-pearl" cx="42" cy="56" r="3.5" />
+        </svg>
+        <span class="nav-label">Visit us</span>
+      </a>
+      <a href="#deals">
+        <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
+          <path class="sticker-straw" d="M31 16 L34 3" />
+          <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
+          <path class="sticker-liquid" d="M12 44 Q20 39 28 44 Q36 49 44 43 Q49 40 52 44 L50 64 Q32 72 14 64 Z" />
+          <ellipse class="sticker-lid" cx="32" cy="20" rx="23" ry="7" />
+          <circle class="sticker-eye" cx="25" cy="33" r="2.7" />
+          <circle class="sticker-eye" cx="39" cy="33" r="2.7" />
+          <circle class="sticker-cheek" cx="20" cy="39" r="1.7" />
+          <circle class="sticker-cheek" cx="44" cy="39" r="1.7" />
+          <path class="sticker-mouth" d="M29 37 Q32 41 35 37" />
+          <circle class="sticker-pearl" cx="22" cy="56" r="3.5" />
+          <circle class="sticker-pearl" cx="32" cy="61" r="3.5" />
+          <circle class="sticker-pearl" cx="42" cy="56" r="3.5" />
+        </svg>
+        <span class="nav-label">Deals</span>
+      </a>
+      <a href="#contact">
+        <svg class="drink-sticker" viewBox="0 0 64 82" aria-hidden="true">
+          <path class="sticker-straw" d="M31 16 L34 3" />
+          <path class="sticker-body" d="M10 20 Q12 69 32 74 Q52 69 54 20 Z" />
+          <path class="sticker-liquid" d="M12 44 Q20 39 28 44 Q36 49 44 43 Q49 40 52 44 L50 64 Q32 72 14 64 Z" />
+          <ellipse class="sticker-lid" cx="32" cy="20" rx="23" ry="7" />
+          <circle class="sticker-eye" cx="25" cy="33" r="2.7" />
+          <circle class="sticker-eye" cx="39" cy="33" r="2.7" />
+          <circle class="sticker-cheek" cx="20" cy="39" r="1.7" />
+          <circle class="sticker-cheek" cx="44" cy="39" r="1.7" />
+          <path class="sticker-mouth" d="M29 37 Q32 41 35 37" />
+          <circle class="sticker-pearl" cx="22" cy="56" r="3.5" />
+          <circle class="sticker-pearl" cx="32" cy="61" r="3.5" />
+          <circle class="sticker-pearl" cx="42" cy="56" r="3.5" />
+        </svg>
+        <span class="nav-label">Contact</span>
+      </a>
     </nav>
 
     <div class="header-actions">
