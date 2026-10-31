@@ -338,8 +338,9 @@
     .site-header .top-tabs a {
       flex: 1 1 0;
       position: relative;
-      overflow: hidden;
-      padding: 1rem 0.75rem 1.45rem;
+      overflow: visible;
+      min-height: 5rem;
+      padding: 1rem 0.75rem 2rem;
       color: #5d5954;
       border: 1px solid rgba(61, 46, 33, 0.12);
       border-radius: 1.25rem 1.25rem 0.9rem 0.9rem;
@@ -354,10 +355,53 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .site-header .top-tabs a > span {
+    .site-header .top-tabs a > .nav-label {
       position: relative;
       z-index: 2;
       display: block;
+    }
+
+    .site-header .top-tabs a > .cup-straw {
+      position: absolute;
+      top: -0.35rem;
+      left: 50%;
+      z-index: 0;
+      display: block;
+      width: 0.18rem;
+      height: 0.8rem;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(61, 46, 33, 0.28);
+      border-radius: 0.2rem;
+      transform: translateX(-50%) rotate(8deg);
+    }
+
+    .site-header .top-tabs a > .cup-face {
+      position: absolute;
+      top: 2.35rem;
+      left: 50%;
+      z-index: 2;
+      display: block;
+      width: 2.4rem;
+      height: 1.25rem;
+      background:
+        radial-gradient(circle at 24% 34%, #201e1d 0 0.18rem, transparent 0.2rem),
+        radial-gradient(circle at 76% 34%, #201e1d 0 0.18rem, transparent 0.2rem),
+        radial-gradient(circle at 4% 77%, #f49a9d 0 0.14rem, transparent 0.17rem),
+        radial-gradient(circle at 96% 77%, #f49a9d 0 0.14rem, transparent 0.17rem);
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+    .site-header .top-tabs a > .cup-face::after {
+      position: absolute;
+      top: 0.55rem;
+      left: 50%;
+      width: 0.55rem;
+      height: 0.28rem;
+      border-bottom: 0.14rem solid #201e1d;
+      border-radius: 0 0 1rem 1rem;
+      content: "";
+      transform: translateX(-50%);
     }
 
     .site-header .top-tabs a::before {
@@ -807,11 +851,11 @@
 <body>
   <header class="site-header">
     <nav class="top-tabs" aria-label="Main navigation">
-      <a href="#intro"><span>Our story</span></a>
-      <a href="#menu"><span>Our menu</span></a>
-      <a href="#visit"><span>Visit us</span></a>
-      <a href="#deals"><span>Deals</span></a>
-      <a href="#contact"><span>Contact</span></a>
+      <a href="#intro"><span class="cup-straw" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Our story</span></a>
+      <a href="#menu"><span class="cup-straw" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Our menu</span></a>
+      <a href="#visit"><span class="cup-straw" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Visit us</span></a>
+      <a href="#deals"><span class="cup-straw" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Deals</span></a>
+      <a href="#contact"><span class="cup-straw" aria-hidden="true"></span><span class="cup-face" aria-hidden="true"></span><span class="nav-label">Contact</span></a>
     </nav>
 
     <div class="header-actions">
