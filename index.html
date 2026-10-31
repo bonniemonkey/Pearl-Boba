@@ -343,7 +343,8 @@
       color: #5d5954;
       border: 1px solid rgba(61, 46, 33, 0.12);
       border-radius: 1.25rem 1.25rem 0.9rem 0.9rem;
-      box-shadow: inset 0 0.15rem 0 rgba(255, 255, 255, 0.55), 0 0.35rem 0.75rem rgba(61, 46, 33, 0.08);
+      background: var(--drink-body);
+      box-shadow: inset 0 -1.45rem 0 var(--drink-liquid), inset 0 0.15rem 0 rgba(255, 255, 255, 0.55), 0 0.35rem 0.75rem rgba(61, 46, 33, 0.08);
       font-weight: 900;
       font-size: 1.05rem;
       letter-spacing: -0.02em;
@@ -389,27 +390,32 @@
     }
 
     .site-header .top-tabs a:nth-child(1) {
-      background: #f06443;
+      --drink-body: #ffd1c4;
+      --drink-liquid: #f06443;
       color: #542822;
     }
 
     .site-header .top-tabs a:nth-child(2) {
-      background: #b97943;
+      --drink-body: #e8bd85;
+      --drink-liquid: #9a5b35;
       color: #fff;
     }
 
     .site-header .top-tabs a:nth-child(3) {
-      background: #78ad52;
+      --drink-body: #c5df8e;
+      --drink-liquid: #5e9849;
       color: #173e25;
     }
 
     .site-header .top-tabs a:nth-child(4) {
-      background: #9566c7;
-      color: #fff;
+      --drink-body: #dfc7f6;
+      --drink-liquid: #9566c7;
+      color: #3a234b;
     }
 
     .site-header .top-tabs a:nth-child(5) {
-      background: #653622;
+      --drink-body: #a66b4b;
+      --drink-liquid: #653622;
       color: #fff;
       text-shadow: 0 0.05rem 0 rgba(0, 0, 0, 0.25);
     }
@@ -426,7 +432,7 @@
 
     .site-header .top-tabs a:hover,
     .site-header .top-tabs a:focus-visible {
-      box-shadow: inset 0 0.15rem 0 rgba(255, 255, 255, 0.7), 0 0.6rem 1rem rgba(61, 46, 33, 0.16);
+      box-shadow: inset 0 -1.45rem 0 var(--drink-liquid), inset 0 0.15rem 0 rgba(255, 255, 255, 0.7), 0 0.6rem 1rem rgba(61, 46, 33, 0.16);
       transform: translateY(-0.15rem);
     }
 
