@@ -72,6 +72,11 @@ a {
   text-decoration: none;
 }
 
+.page-nav .home-link {
+  color: #fff;
+  background: var(--ink);
+}
+
 .page-nav a:hover,
 .page-nav a:focus-visible,
 .page-nav a.active {
