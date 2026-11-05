@@ -1,7 +1,7 @@
 :root {
   --cream: #fff5ea;
   --ink: #201e1d;
-  --muted: #665d57;
+  --muted: #201e1d;
   --peach: #f06443;
   --matcha: #78ad52;
   --milk-tea: #b97943;
@@ -88,6 +88,11 @@ a {
   max-width: 78rem;
   margin: 0 auto;
   padding: 3rem 1.5rem 5rem;
+}
+
+.page-main p,
+.page-main li {
+  font-weight: 700;
 }
 
 .page-intro {
