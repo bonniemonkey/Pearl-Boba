@@ -669,6 +669,30 @@
       padding: 0 3.5rem 4rem;
     }
 
+    .site-footer {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 2rem 3.5rem;
+      color: #201e1d;
+      background: #f3dfca;
+      border-top: 2px solid #201e1d;
+      font-weight: 700;
+    }
+
+    .site-footer h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .site-footer a {
+      color: inherit;
+    }
+
     .hero {
       position: relative;
       min-height: calc(100vh - 7rem);
@@ -941,6 +965,11 @@
         padding-right: 1.5rem;
         padding-left: 1.5rem;
       }
+
+      .site-footer {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+      }
     }
 
     @media (max-width: 600px) {
@@ -986,6 +1015,12 @@
 
       .header-actions {
         gap: 0.5rem;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+        padding-right: 1rem;
+        padding-left: 1rem;
       }
 
       .quick-picks-row {
@@ -1095,7 +1130,7 @@
 
     <div class="header-actions">
       <a class="header-home" href="index.html" aria-current="page">Home</a>
-      <a class="header-cta" href="#menu">Order now</a>
+      <a class="header-cta" href="our-menu.html">Order now</a>
     </div>
   </header>
 
@@ -1108,7 +1143,7 @@
         <h1 class="typing-headline" aria-label="Fresh boba for your day."><span data-typing="Fresh ">Fresh </span><span class="accent" data-typing="boba">boba</span><br /><span data-typing="for your day.">for your day.</span></h1>
         <p class="hero-support">Fresh tea, soft pearls, and bright flavors made right near campus.</p>
         <div class="hero-actions">
-          <a class="hero-button" href="#menu">Explore the menu</a>
+          <a class="hero-button" href="our-menu.html">Explore the menu</a>
           <a class="hero-secondary" href="our-story.html">Our story</a>
         </div>
       </div>
@@ -1136,96 +1171,23 @@
       </article>
     </section>
 
-    <section class="items-section" id="menu">
-      <h2>Menu</h2>
-      <div class="menu-layout">
-      <div>
-        <p>Drinks:</p>
-        <div class="drink-gallery">
-      <button class="drink-card" type="button" data-name="Brown Sugar Milk Tea" data-price="$6.00" data-info="Rich caramel flavor with chewy brown sugar pearls.">
-        <img src="images/brown-sugar-cup.jpg" alt="Brown sugar milk tea with boba" />
-        <span class="drink-card-copy">
-          <strong>Brown Sugar Milk Tea</strong>
-          <span>Rich caramel flavor with chewy brown sugar pearls.</span>
-        </span>
-      </button>
-      <button class="drink-card" type="button" data-name="Classic Milk Tea" data-price="$5.50" data-info="Smooth, creamy tea paired with classic boba.">
-        <img src="images/brown-sugar.jpg" alt="Milk tea with boba held in a cup" />
-        <span class="drink-card-copy">
-          <strong>Classic Milk Tea</strong>
-          <span>Smooth, creamy tea paired with classic boba.</span>
-        </span>
-      </button>
-      <button class="drink-card" type="button" data-name="Taro Milk Tea" data-price="$6.00" data-info="Creamy taro with a softly sweet, nutty finish.">
-        <img src="images/taro.jpg" alt="Taro milk tea" />
-        <span class="drink-card-copy">
-          <strong>Taro Milk Tea</strong>
-          <span>Creamy taro with a softly sweet, nutty finish.</span>
-        </span>
-      </button>
-      <button class="drink-card" type="button" data-name="Matcha Latte" data-price="$6.25" data-info="Earthy green tea layered with smooth milk.">
-        <img src="images/milk-tea.jpg" alt="Layered green tea drink" />
-        <span class="drink-card-copy">
-          <strong>Matcha Latte</strong>
-          <span>Earthy green tea layered with smooth milk.</span>
-        </span>
-      </button>
-      <button class="drink-card" type="button" data-name="Fresh Tea Blend" data-price="$5.50" data-info="A bright, layered drink with a refreshing finish.">
-        <img src="images/layered.jpg" alt="Green and pink layered tea" />
-        <span class="drink-card-copy">
-          <strong>Fresh Tea Blend</strong>
-          <span>A bright, layered drink with a refreshing finish.</span>
-        </span>
-      </button>
-      <button class="drink-card" type="button" data-name="Strawberry Fruit Tea" data-price="$5.50" data-info="Juicy strawberry tea balanced with citrusy lemon.">
-        <img src="images/strawberry.jpg" alt="Strawberry fruit tea with lemon" />
-        <span class="drink-card-copy">
-          <strong>Strawberry Fruit Tea</strong>
-          <span>Juicy strawberry tea balanced with citrusy lemon.</span>
-        </span>
-      </button>
-        </div>
-      </div>
-
-      <aside class="price-list">
-        <h3>Menu prices</h3>
-        <ul>
-          <li>Classic Milk Tea with Boba - $5.50</li>
-          <li>Brown Sugar Milk Tea - $6.00</li>
-          <li>Taro Milk Tea - $6.00</li>
-          <li>Matcha Latte with Boba - $6.25</li>
-          <li>Thai Tea - $5.75</li>
-          <li>Mango Green Tea - $5.50</li>
-          <li>Strawberry Fruit Tea - $5.50</li>
-          <li>Honey Lemon Green Tea - $5.25</li>
-          <li>Wintermelon Tea - $5.00</li>
-          <li>Oolong Milk Tea - $5.75</li>
-        </ul>
-
-        <h3>Toppings</h3>
-        <ul>
-          <li>Classic boba pearls - +$0.75</li>
-          <li>Brown sugar pearls - +$1.00</li>
-          <li>Lychee jelly - +$0.75</li>
-          <li>Aloe jelly - +$0.75</li>
-          <li>Pudding - +$0.75</li>
-        </ul>
-
-        <p>Sweetness: 0%, 30%, 50%, 70%, or 100%</p>
-        <p>Ice: Extra ice, regular ice, or less ice</p>
-      </aside>
-      </div>
-    </section>
-
   </main>
 
-  <aside class="drink-details" id="drink-details" aria-hidden="true">
-    <button class="details-close" type="button" aria-label="Close drink details">&times;</button>
-    <p class="details-label">Drink details</p>
-    <h2 id="details-title">Select a drink</h2>
-    <p id="details-info">Choose a boba card to see more information.</p>
-    <p><strong>Price:</strong> <span id="details-price">--</span></p>
-  </aside>
+  <footer class="site-footer">
+    <div>
+      <h2>Visit us</h2>
+      <p>418 Pearl Street, near campus</p>
+    </div>
+    <div>
+      <h2>Hours</h2>
+      <p>Mon–Fri: 11 AM–9 PM · Sat–Sun: 12–9 PM</p>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <p><a href="mailto:kai@pearlstreetboba.example">kai@pearlstreetboba.example</a></p>
+      <p>© 2026 Pearl Street Boba</p>
+    </div>
+  </footer>
 
   <script>
     const typingHeadline = document.querySelector('.typing-headline');
@@ -1257,33 +1219,6 @@
       }, typingDelay + 700);
     }
 
-    const detailsPanel = document.querySelector('#drink-details');
-    const detailsTitle = document.querySelector('#details-title');
-    const detailsInfo = document.querySelector('#details-info');
-    const detailsPrice = document.querySelector('#details-price');
-    const closeDetails = document.querySelector('.details-close');
-
-    document.querySelectorAll('.drink-card').forEach((card) => {
-      card.addEventListener('click', () => {
-        detailsTitle.textContent = card.dataset.name;
-        detailsInfo.textContent = card.dataset.info;
-        detailsPrice.textContent = card.dataset.price;
-        detailsPanel.classList.add('is-open');
-        detailsPanel.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-    closeDetails.addEventListener('click', () => {
-      detailsPanel.classList.remove('is-open');
-      detailsPanel.setAttribute('aria-hidden', 'true');
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        detailsPanel.classList.remove('is-open');
-        detailsPanel.setAttribute('aria-hidden', 'true');
-      }
-    });
   </script>
 </body>
 </html>
