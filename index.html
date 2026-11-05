@@ -124,6 +124,38 @@
       border-top: 2px solid #d9e5d9;
     }
 
+    .quick-picks-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0 0;
+    }
+
+    .quick-pick {
+      padding: 1.25rem;
+      border: 1px solid #e8e4de;
+      border-radius: 1.25rem;
+      background: #fff;
+      box-shadow: 0 0.75rem 2rem rgba(61, 46, 33, 0.04);
+    }
+
+    .quick-pick h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1.3rem;
+    }
+
+    .quick-pick ul,
+    .price-list ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: #5d5954;
+    }
+
+    .quick-pick li + li,
+    .price-list li + li {
+      margin-top: 0.35rem;
+    }
+
     .menu-layout {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
@@ -846,6 +878,10 @@
       height: 13rem;
     }
 
+      .quick-picks-row {
+        gap: 1.25rem;
+      }
+
     .info-row {
       margin-top: 4rem;
     }
@@ -929,6 +965,10 @@
 
       .header-actions {
         gap: 0.5rem;
+      }
+
+      .quick-picks-row {
+        grid-template-columns: 1fr;
       }
 
       .language-switch {
@@ -1053,6 +1093,25 @@
       <div class="hero-visual">
         <img src="images/hero.jpg" alt="Boba tea held beneath pink blossoms" />
       </div>
+    </section>
+
+    <section class="quick-picks-row" aria-label="Boba choices">
+      <article class="quick-pick">
+        <h2>What we brew</h2>
+        <ul>
+          <li>Classic and brown sugar milk tea</li>
+          <li>Fresh fruit tea blends</li>
+          <li>Matcha and taro favorites</li>
+        </ul>
+      </article>
+      <article class="quick-pick">
+        <h2>Make it yours</h2>
+        <ul>
+          <li>Choose your sweetness level</li>
+          <li>Pick regular, less, or extra ice</li>
+          <li>Add boba, jelly, or pudding</li>
+        </ul>
+      </article>
     </section>
 
     <section class="items-section" id="menu">
