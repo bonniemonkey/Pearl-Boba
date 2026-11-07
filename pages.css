@@ -112,12 +112,14 @@ a {
 }
 
 .page-intro {
-  margin-bottom: 2rem;
-  padding: clamp(1.35rem, 3vw, 2.5rem);
+  max-width: 64rem;
+  margin: 0 auto 1.5rem;
+  padding: clamp(1.15rem, 2.5vw, 2rem);
+  box-sizing: border-box;
   color: #fff;
   background: var(--ink);
-  border: 0.35rem solid #ffd05a;
-  border-radius: 2rem;
+  border: 0.25rem solid #ffd05a;
+  border-radius: 1.5rem;
   box-shadow: 0 1rem 2rem rgba(61, 46, 33, 0.12);
   animation: page-enter 0.45s ease-out both;
 }
@@ -145,7 +147,7 @@ a {
 .page-intro h1 {
   max-width: 48rem;
   margin: 0 0 0.75rem;
-  font-size: clamp(2.35rem, 5vw, 4.25rem);
+  font-size: clamp(2.1rem, 4.5vw, 4rem);
   line-height: 0.95;
   letter-spacing: -0.06em;
 }
@@ -163,7 +165,7 @@ a {
   max-width: 42rem;
   margin: 0;
   color: #f7e9dc;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .content-grid,
