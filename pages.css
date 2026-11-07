@@ -26,7 +26,8 @@ h2,
 h3,
 h4 {
   font-family: "Oooh Baby", cursive;
-  font-weight: 400;
+  font-weight: 700;
+  -webkit-text-stroke: 0.01em currentColor;
 }
 
 a {
@@ -125,9 +126,18 @@ a {
 .page-intro h1 {
   max-width: 48rem;
   margin: 0 0 0.75rem;
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-size: clamp(3rem, 8vw, 5.75rem);
   line-height: 0.95;
   letter-spacing: -0.06em;
+}
+
+.info-card h2,
+.menu-card h2 {
+  font-size: 1.7rem;
+}
+
+.menu-card h3 {
+  font-size: 1.4rem;
 }
 
 .page-intro p:last-child {
